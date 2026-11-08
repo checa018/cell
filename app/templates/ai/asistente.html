@@ -1,0 +1,28 @@
+{% extends appbuilder.base_template %}
+
+{% block content %}
+<div class="container" style="margin-top: 30px; max-width: 800px;">
+    <div class="panel panel-primary" style="border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+        <div class="panel-heading" style="background-color: #2c3e50; border-color: #2c3e50; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+            <h3 class="panel-title"><i class="fa fa-robot"></i> Asistente Inteligente - SmartShop</h3>
+        </div>
+        <div class="panel-body">
+            <p class="text-muted">Pregúntame sobre especificaciones de celulares, marcas, almacenamiento o recomendaciones para tus clientes:</p>
+            
+            <form method="POST">
+                <div class="form-group">
+                    <textarea name="pregunta" class="form-control" rows="3" placeholder="Ej: ¿Qué celular de gama media me recomiendas con buena batería?" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane"></i> Consultar a la IA</button>
+            </form>
+
+            {% if respuesta %}
+            <div class="well" style="margin-top: 25px; background-color: #f8f9fa; border-left: 4px solid #2c3e50;">
+                <h4>Respuesta del Asistente:</h4>
+                <p style="white-space: pre-line; font-size: 15px;">{{ respuesta }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
